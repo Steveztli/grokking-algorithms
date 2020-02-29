@@ -1,6 +1,7 @@
 import { binarySearch } from '../binary-search';
 import { quickSort } from '../quick-sort';
 import { breadthFirst } from '../breadth-first';
+import { dijkstra } from '../dijkstra';
 
 describe('Binary search', () => {
   test('works with numbers', () => {
@@ -22,7 +23,6 @@ describe('Quick sort', () => {
     expect(quickSort([8,4,3,7,9,1,2,5,6])).toStrictEqual([1,2,3,4,5,6,7,8,9]);
   });
 });
-
 
 describe('Breath first', () => {
   test('finds shortest', () => {
@@ -53,5 +53,22 @@ describe('Breath first', () => {
       {name: 'Yuna', selected: false, connexions: ['Ryujin']},
     ]
     expect(breadthFirst(connections[0], connections)).toBeUndefined();
+  });
+});
+
+
+describe('Dijkstra', () => {
+  test('finds shortest', () => {
+    let connexions = 
+    {start: [{name: "a", weight: 5},{name: "b", weight: 2}],
+    a: [{name: "c", weight: 4},{name: "d", weight: 2}],
+    b: [{name: "a", weight: 8},{name: "d", weight: 7}],
+    c: [{name: "d", weight: 6},{name: "end", weight: 3}],
+    d: [{name: "end", weight: 1}],
+    end: []}
+ 
+    
+
+    expect(dijkstra("start", "end", connexions)).toStrictEqual({path: "start, a, d, end", total: 8});
   });
 });
