@@ -139,7 +139,6 @@ describe("Dynamic programming", () => {
       { name: "camera", weight: 1, value: 6 }
     ];
 
-    expect(knapsack(6, options)).toStrictEqual(25);
-    //TODO return object list also
+    expect(knapsack(6, options)).toStrictEqual({picks: ["camera", "food", "water"], "value": 25});
   });
 });
